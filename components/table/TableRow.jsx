@@ -46,6 +46,9 @@ class TableRow extends React.Component {
 
   renderInput (key, value) {
     const inputType = utils.inputTypeForPrototype(this.props.model[key].type);
+    if (this.props.model[key].render) {
+      return this.props.model[key].render(this.props.data);
+    }
     const inputValue = utils.prepareValueForInput(value, inputType);
     const checked = inputType === 'checkbox' && value ? true : null;
     return (

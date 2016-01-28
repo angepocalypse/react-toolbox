@@ -5,7 +5,9 @@ import style from './style';
 const TableHead = ({model, onSelect, selectable, selected}) => {
   let selectCell;
   const contentCells = Object.keys(model).map((key) => {
-    return <th key={key}>{key}</th>;
+    const title = model[key].header || key;
+    const width = model[key].width;
+    return <th key={key} style={{width}}>{title}</th>;
   });
 
   if (selectable) {
