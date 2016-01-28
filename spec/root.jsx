@@ -32,38 +32,43 @@ const _hrefProject = () => {
 
 const Root = () => (
   <App className={style.app}>
-    <AppBarToolbox fixed flat className={style.appbar}>
-      <h1>React Toolbox <small>Spec {VERSION}</small></h1>
-      <ButtonToolbox
-        accent
-        className={style.github}
-        icon='web'
-        floating
-        onClick={_hrefProject}
-      />
-    </AppBarToolbox>
-
-    <Autocomplete />
-    <Avatar />
-    <Button />
-    <Card />
-    <Checkbox />
-    <Dialog />
-    <Drawer />
-    <Dropdown />
-    <IconMenu />
-    <Input />
-    <List />
-    <Menu />
-    <Pickers />
-    <Progress />
-    <Radio />
-    <Slider />
-    <Snackbar />
-    <Switch />
+    { /*
+     <AppBarToolbox fixed flat className={style.appbar}>
+     <h1>React Toolbox
+     <small>Spec {VERSION}</small>
+     </h1>
+     <ButtonToolbox
+     accent
+     className={style.github}
+     icon='web'
+     floating
+     onClick={_hrefProject}
+     />
+     </AppBarToolbox>
+     <Autocomplete />
+     <Avatar />
+     <Button />
+     <Card />
+     <Checkbox />
+     <Dialog />
+     <Drawer />
+     <Dropdown />
+     <IconMenu />
+     <Input />
+     <List />
+     <Menu />
+     <Pickers />
+     <Progress />
+     <Radio />
+     <Slider />
+     <Snackbar />
+     <Switch />
+     */}
     <Table />
-    <Tabs />
-    <Tooltip />
+    {/*
+     <Tabs />
+     <Tooltip />
+     */}
   </App>
 );
 

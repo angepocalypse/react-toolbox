@@ -19,23 +19,23 @@ class TableRow extends React.Component {
     this.props.onChange(key, value);
   };
 
-  renderSelectCell () {
+  renderSelectCell() {
     if (this.props.selectable) {
       return (
         <td className={style.selectable}>
-          <Checkbox checked={this.props.selected} onChange={this.props.onSelect} />
+          <Checkbox checked={this.props.selected} onChange={this.props.onSelect}/>
         </td>
       );
     }
   }
 
-  renderCells () {
+  renderCells() {
     return Object.keys(this.props.model).map((key) => {
       return <td key={key}>{this.renderCell(key)}</td>;
     });
   }
 
-  renderCell (key) {
+  renderCell(key) {
     const value = this.props.data[key];
     if (this.props.onChange) {
       return this.renderInput(key, value);
@@ -44,8 +44,13 @@ class TableRow extends React.Component {
     }
   }
 
-  renderInput (key, value) {
+  renderInput(key, value) {
     const inputType = utils.inputTypeForPrototype(this.props.model[key].type);
+
+    if (this.props.model[key].render) {
+      return this.props.model[key].render(this.props.data);
+    }
+
     const inputValue = utils.prepareValueForInput(value, inputType);
     const checked = inputType === 'checkbox' && value ? true : null;
     return (
@@ -58,7 +63,7 @@ class TableRow extends React.Component {
     );
   }
 
-  render () {
+  render() {
     const className = ClassNames(style.row, {
       [style.editable]: this.props.onChange,
       [style.selected]: this.props.selected
